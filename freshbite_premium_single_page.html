@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshBite Premium Meals</title>
+
+<style>
+body{
+margin:0;
+font-family: 'Segoe UI', Arial, sans-serif;
+background: linear-gradient(135deg,#fff6e5,#ffe0b3,#fff6e5);
+}
+
+/* HEADER */
+header{
+background:#c62828;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
+
+header h2{
+margin:0;
+}
+
+nav a{
+margin:0 12px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(120deg,#ffcc33,#ffb300);
+}
+
+.hero h1{
+font-size:45px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+button{
+padding:10px 18px;
+border:none;
+border-radius:6px;
+background:#c62828;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* SECTIONS */
+section{
+padding:60px 40px;
+}
+
+/* FOOD GRID */
+.food-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.food-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,0.25);
+transition:0.3s;
+}
+
+.food-card:hover{
+transform:translateY(-5px);
+}
+
+.food-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.food-card h3{
+margin:10px;
+}
+
+.food-card p{
+margin:10px;
+font-weight:bold;
+}
+
+/* CART */
+.cart{
+margin-top:40px;
+padding:30px;
+border-radius:15px;
+background:#fff;
+box-shadow:0 4px 15px rgba(0,0,0,0.25);
+}
+
+.cart h3{
+margin-top:0;
+}
+
+/* RESTAURANT STYLE TOTAL */
+.total-box{
+background:linear-gradient(90deg,#212121,#424242);
+color:white;
+padding:15px;
+border-radius:10px;
+font-size:20px;
+margin-top:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* THANK YOU PAGE */
+#thankyou{
+display:none;
+text-align:center;
+padding:120px 20px;
+}
+
+.big-smile{
+font-size:100px;
+}
+
+/* FOOTER */
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>FreshBite Premium Meals</h2>
+<nav>
+<a onclick="scrollToSection('home')">Home</a>
+<a onclick="scrollToSection('about')">About</a>
+<a onclick="scrollToSection('menu')">Menu</a>
+<a onclick="scrollToSection('contact')">Contact</a>
+</nav>
+</header>
+
+<section id="home" class="hero">
+<h1>Healthy & Delicious Meals</h1>
+<p>Premium quality food delivered across Kuala Lumpur</p>
+<button onclick="scrollToSection('menu')">Explore Menu</button>
+</section>
+
+<section id="about">
+<h2>About Our Business</h2>
+<p>FreshBite is a home-based healthy meal delivery business designed for busy professionals and students who want nutritious meals without cooking.</p>
+<p><b>Mission:</b> Serve fresh, delicious and affordable healthy meals.</p>
+</section>
+
+<section id="menu">
+<h2>Meal Menu</h2>
+
+<div class="food-grid">
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<h3>Chicken Burger</h3>
+<p>RM 12</p>
+<button onclick="addCart('Chicken Burger',12)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<h3>Healthy Salad</h3>
+<p>RM 10</p>
+<button onclick="addCart('Healthy Salad',10)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1604908176997-4319c1c7f87c">
+<h3>Grilled Chicken Bowl</h3>
+<p>RM 15</p>
+<button onclick="addCart('Grilled Chicken Bowl',15)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<h3>Chicken Rice</h3>
+<p>RM 14</p>
+<button onclick="addCart('Chicken Rice',14)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d">
+<h3>Healthy Pasta</h3>
+<p>RM 13</p>
+<button onclick="addCart('Healthy Pasta',13)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+<h3>Fruit Energy Bowl</h3>
+<p>RM 9</p>
+<button onclick="addCart('Fruit Energy Bowl',9)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc">
+<h3>Protein Power Meal</h3>
+<p>RM 18</p>
+<button onclick="addCart('Protein Power Meal',18)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1605475128023-7c31c9b7c5b3">
+<h3>Grilled Fish Meal</h3>
+<p>RM 17</p>
+<button onclick="addCart('Grilled Fish Meal',17)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1605478907209-3c8c0f7b1c02">
+<h3>Beef Steak Plate</h3>
+<p>RM 25</p>
+<button onclick="addCart('Beef Steak Plate',25)">Add</button>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1613145993517-7b0e0f3c5f07">
+<h3>Veggie Wrap</h3>
+<p>RM 11</p>
+<button onclick="addCart('Veggie Wrap',11)">Add</button>
+</div>
+
+</div>
+
+<div class="cart">
+<h3>Your Cart</h3>
+<ul id="cartList"></ul>
+
+<div class="total-box">
+<span>Total</span>
+<span>RM <span id="total">0</span></span>
+</div>
+
+<br>
+
+<label>Payment Method</label>
+<select id="payment">
+<option>Credit Card</option>
+<option>Debit Card</option>
+<option>Online Banking</option>
+<option>Cash On Delivery</option>
+</select>
+
+<br><br>
+
+<button onclick="checkout()">Confirm Payment</button>
+</div>
+
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p><b>Address:</b> Kuala Lumpur, Malaysia</p>
+<p><b>Phone:</b> +60 123456789</p>
+<p><b>Email:</b> freshbite@email.com</p>
+</section>
+
+<section id="thankyou">
+<div class="big-smile">😊</div>
+<h1>Thank You For Your Purchase!</h1>
+<p>We are happy to serve you. Come again!</p>
+<br>
+<button onclick="goHome()">Back To Homepage</button>
+</section>
+
+<footer>
+<p>© 2026 FreshBite Premium Meals</p>
+</footer>
+
+<script>
+
+let total = 0;
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+function addCart(name,price){
+const li=document.createElement("li");
+li.textContent=name+" - RM "+price;
+document.getElementById("cartList").appendChild(li);
+
+total+=price;
+document.getElementById("total").innerText=total;
+}
+
+function checkout(){
+
+if(total==0){
+alert("Cart is empty");
+return;
+}
+
+document.getElementById("home").style.display="none";
+document.getElementById("about").style.display="none";
+document.getElementById("menu").style.display="none";
+document.getElementById("contact").style.display="none";
+
+document.getElementById("thankyou").style.display="block";
+
+window.scrollTo(0,0);
+}
+
+function goHome(){
+
+location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
